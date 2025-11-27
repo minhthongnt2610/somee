@@ -20,8 +20,8 @@ jobs:
           username: ${{ secrets.USER_FTP }}
           password: ${{ secrets.PASSWORD_FTP }}
 
-          protocol: ftp          # <<< SỬA VỀ FTP
-          security: "none"       # <<< BẮT BUỘC VỚI SOMEE
+          protocol: ftp
+          security: "loose"
 
           local-dir: ./
           server-dir: /wwwroot/
