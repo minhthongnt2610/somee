@@ -13,19 +13,19 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3
 
-      # Build nếu là .NET / Node / PHP -> tùy bạn thêm vào
-      # - name: Build project
-      #   run: dotnet publish -c Release
-
       - name: Upload to Somee FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.HOST_FTP }}
           username: ${{ secrets.USER_FTP }}
           password: ${{ secrets.PASSWORD_FTP }}
-          protocol: ftps
-          local-dir: ./    # thư mục deploy — đổi theo framework
-          server-dir: /wwwroot/    # thư mục gốc Somee
+
+          protocol: ftp          # <<< SỬA VỀ FTP
+          security: "none"       # <<< BẮT BUỘC VỚI SOMEE
+
+          local-dir: ./
+          server-dir: /wwwroot/
+
           exclude: |
             **/.git*
             **/.github*
