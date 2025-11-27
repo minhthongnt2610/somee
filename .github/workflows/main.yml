@@ -2,8 +2,7 @@ name: Deploy to Somee via FTP
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
 jobs:
   deploy:
@@ -12,6 +11,8 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Upload to Somee FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -21,17 +22,17 @@ jobs:
           password: ${{ secrets.PASSWORD_FTP }}
 
           protocol: ftp
-          security: "loose"
+          security: loose
 
-          local-dir: ./
-          server-dir: /wwwroot/
+          local-dir: "./"
+          server-dir: "/wwwroot/"
 
           exclude: |
-            **/.git**
+            **/.git/**
             **/.github/**
-            **/.gitignore
-            **/.gitattributes
+            **/*.yml
             **/node_modules/**
             **/bin/**
             **/obj/**
-            **/*.yml
+            .gitignore
+            .gitattributes
