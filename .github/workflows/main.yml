@@ -23,7 +23,7 @@ jobs:
           protocol: ftp
           security: "loose"
 
-          local-dir: ./index.html
+          local-dir: ./index.html/
           server-dir: /wwwroot/
 
           exclude: |
