@@ -25,7 +25,7 @@ jobs:
           password: ${{ secrets.PASSWORD_FTP }}
           protocol: ftps
           local-dir: ./    # thư mục deploy — đổi theo framework
-          server-dir: /    # thư mục gốc Somee
+          server-dir: /wwwroot/    # thư mục gốc Somee
           exclude: |
             **/.git*
             **/.github*
