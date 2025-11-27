@@ -2,7 +2,8 @@ name: Deploy to Somee via FTP
 
 on:
   push:
-    branches: [ "main" ]
+    branches: 
+      - main
 
 jobs:
   deploy:
@@ -11,8 +12,6 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Upload to Somee FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -24,8 +23,8 @@ jobs:
           protocol: ftp
           security: loose
 
-          local-dir: "./"
-          server-dir: "/Web/"
+          local-dir: ./
+          server-dir: /   # Sử dụng "/" nếu đó là thư mục gốc, hoặc "www.dh52201516.somee.com"
 
           exclude: |
             **/.git/**
