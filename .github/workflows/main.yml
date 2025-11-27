@@ -23,7 +23,7 @@ jobs:
           protocol: ftp
           security: loose
 
-          local-dir: ./
+          local-dir: ./public
           server-dir: /   # Sử dụng "/" nếu đó là thư mục gốc, hoặc "www.dh52201516.somee.com"
 
           exclude: |
