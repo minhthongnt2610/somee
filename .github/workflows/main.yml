@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source code
+      - name: Checkout source
         uses: actions/checkout@v3
 
       - name: Upload to Somee FTP
@@ -27,8 +27,11 @@ jobs:
           server-dir: /wwwroot/
 
           exclude: |
-            **/.git*
-            **/.github*
-            **/node_modules/*
-            **/obj/*
-            **/bin/*
+            **/.git**
+            **/.github/**
+            **/.gitignore
+            **/.gitattributes
+            **/node_modules/**
+            **/bin/**
+            **/obj/**
+            **/*.yml
