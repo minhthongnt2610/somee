@@ -25,7 +25,7 @@ jobs:
           security: loose
 
           local-dir: "./"
-          server-dir: "/"
+          server-dir: "/Web/"
 
           exclude: |
             **/.git/**
